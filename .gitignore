@@ -1,4 +1,5 @@
 *.cap
+*.disk
 *.fat
 *.iso
 *.rootfs

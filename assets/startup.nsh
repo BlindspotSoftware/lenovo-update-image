@@ -15,11 +15,11 @@ else
   echo "ERROR: ShellFlash not found"
 endif
 
-# ShellFlash should not return if successful. Update failed.
+# ShellFlash should not return if successful. So the update failed.
 :failed
+echo "ShellFlash Update failed!"
 
-# sleep 10 seconds
+# Hold error output for 10 seconds for debugging purposes.
+echo "Wait 10 seconds to shut down."
 stall 10000000
-
-# shutdown
 reset -s
