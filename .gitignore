@@ -1,0 +1,4 @@
+*.fat
+*.iso
+*.rootfs
+*.tmp
