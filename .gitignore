@@ -1,0 +1,5 @@
+*.cap
+*.fat
+*.iso
+*.rootfs
+*.tmp
