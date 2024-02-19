@@ -10,7 +10,7 @@ endfor
 # execute ShellFlash if found
 if exist %map%:\EFI\ShellFlash.efi then
   %map%:
-  \EFI\ShellFlash.efi /sn /sd /file \EFI\FIRMWARE.cap
+  \EFI\ShellFlash.efi /sn /sd /capload /file \EFI\FIRMWARE.cap
 else
   echo "ERROR: ShellFlash not found"
 endif
@@ -19,7 +19,7 @@ endif
 :failed
 echo "ShellFlash Update failed!"
 
-# Hold error output for 10 seconds for debugging purposes.
-echo "Wait 10 seconds to shut down."
-stall 10000000
+# Hold error output for 30 seconds for debugging purposes.
+echo "Wait 30 seconds to shut down."
+stall 30000000
 reset -s
