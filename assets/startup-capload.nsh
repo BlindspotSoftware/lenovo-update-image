@@ -10,7 +10,7 @@ endfor
 # execute ShellFlash if found
 if exist %map%:\EFI\ShellFlash.efi then
   %map%:
-  \EFI\ShellFlash.efi /sn /sd /file \EFI\FIRMWARE.cap
+  \EFI\ShellFlash.efi /sn /sd /capload /file \EFI\FIRMWARE.cap
 else
   echo "ERROR: ShellFlash not found"
 endif
