@@ -1,6 +1,5 @@
 CAP_FILES := $(notdir $(wildcard firmware/*.cap))
 FAT_FILES := $(patsubst %.cap,%.fat,$(CAP_FILES))
-#ISO_FILES := $(patsubst %.cap,%.iso,$(CAP_FILES))
 DISK_FILES := $(patsubst %.cap,%.disk,$(CAP_FILES))
 
 DISK_SIZE_MB := 64
@@ -13,8 +12,6 @@ FAT_END_MB := $(shell echo $$(( $(FAT_SIZE_MB) + 1 )))
 all: disk
 
 disk: $(DISK_FILES)
-
-#iso: $(ISO_FILES)
 
 clean:
 	rm -rf *.disk *.fat *.iso *.rootfs *.tmp
@@ -38,13 +35,6 @@ clean:
 	parted $@.tmp print
 	dd if=$< of=$@.tmp bs=1M seek=1 conv=notrunc
 	mv $@.tmp $@
-
-#%.iso: %.fat
-#	@rm -rf $@.rootfs
-#	mkdir $@.rootfs
-#	cp $< $@.rootfs/$(notdir $<)
-#	xorriso -as mkisofs -R -f -no-emul-boot -e $(notdir $<) -o $@ $@.rootfs
-#	rm -r $@.rootfs
 
 .PHONY: all clean disk iso
 #.PRECIOUS: $(FAT_FILES)
